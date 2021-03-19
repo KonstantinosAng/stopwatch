@@ -19,9 +19,11 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-
+  mainWindow.setIcon(path.join(__dirname, 'favicon.png'));
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
+  mainWindow.removeMenu();
+  mainWindow.setMenu(null);
 };
 
 // This method will be called when Electron has finished

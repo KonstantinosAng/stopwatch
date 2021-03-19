@@ -1,5 +1,5 @@
 
-let hour, min, sec, end, startFlag=false;
+let hour, min, sec, end, startFlag=false, song, h, m, s;
 
 function setup() {
   createCanvas(windowWidth, windowHeight-100);
@@ -17,10 +17,14 @@ function setup() {
     max = hour*60*60 + min*60 + sec;
     startFlag = true;
   })
+  song = loadSound('complete.mp3');
 }
 
 function playSound() {
-  
+  song.play();
+  h.value = '';
+  m.value = '';
+  s.value = '';
 }
 
 function draw() {
@@ -40,8 +44,4 @@ function draw() {
       playSound()
     }
   }
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
 }
