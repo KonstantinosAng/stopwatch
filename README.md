@@ -23,7 +23,7 @@ npm start
 Inside the cloned stopwatch folder run:
 
 ```
-npm run build
+npm run make
 ```
 
 Then you will find the executable files to install the app for your system in the out folder.
