@@ -1,5 +1,6 @@
-
 let hour, min, sec, end, startFlag=false, song, h, m, s;
+const remote = require('electron').remote;
+const { app } = require('electron');
 
 function setup() {
   createCanvas(windowWidth, windowHeight-100);
@@ -18,6 +19,12 @@ function setup() {
     startFlag = true;
   })
   song = loadSound('complete.mp3');
+  quit = document.getElementById('quit');
+  quit.addEventListener('click', ()=>{
+	let w = remote.getCurrentWindow();
+	w.close();
+	app.close(0);
+  })
 }
 
 function playSound() {
@@ -32,12 +39,12 @@ function draw() {
   strokeWeight(10);
   stroke(255);
   noFill();
-  ellipse(windowWidth/2, windowHeight/2-50, 280, 280);
+  ellipse(windowWidth/2, windowHeight/2-80, 280, 280);
   stroke(255, 150, 0);
   fill(255, 0, 0);
   if (startFlag) {
     end = map(total, 0, max, 360, 0);
-    arc(windowWidth/2, windowHeight/2-50, 280, 280, end-90, -90);
+    arc(windowWidth/2, windowHeight/2-80, 280, 280, end-90, -90);
     total = total - 1;
     if (total === -1) { 
       startFlag = false

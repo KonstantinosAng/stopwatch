@@ -37,14 +37,22 @@ h2 {
 button {
   width: 8vw;
   height: 6vh;
-  margin: 1vh 0;
-  background-color: midnightblue;
+  margin: 1vh 1vw;
   color: white;
-  border: 2px solid midnightblue;
   border-radius: 5px;
   cursor: pointer;
   -webkit-app-region: no-drag;
   outline: none;
+}
+
+#btn {
+	background-color: midnightblue;
+	border: 2px solid midnightblue;
+}
+
+#quit {
+	background-color: red;
+	border: 2px solid red;
 }
 
 input {
