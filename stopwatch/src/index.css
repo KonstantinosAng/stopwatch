@@ -4,6 +4,7 @@
   border: 0;
   align-items: center;
   text-align: center;
+  overflow: hidden;
 }
 
 .root {
@@ -42,6 +43,8 @@ button {
   border: 2px solid midnightblue;
   border-radius: 5px;
   cursor: pointer;
+  -webkit-app-region: no-drag;
+  outline: none;
 }
 
 input {
@@ -49,4 +52,6 @@ input {
   width: 8vw;
   border: 1px solid white;
   border-radius: 5px;
+  -webkit-app-region: no-drag;
+  outline: none;
 }

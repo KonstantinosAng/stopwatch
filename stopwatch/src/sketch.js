@@ -32,12 +32,12 @@ function draw() {
   strokeWeight(10);
   stroke(255);
   noFill();
-  ellipse(windowWidth/2, windowHeight/2-100, 300, 300);
+  ellipse(windowWidth/2, windowHeight/2-50, 280, 280);
   stroke(255, 150, 0);
   fill(255, 0, 0);
   if (startFlag) {
     end = map(total, 0, max, 360, 0);
-    arc(windowWidth/2, windowHeight/2-100, 280, 280, end-90, -90);
+    arc(windowWidth/2, windowHeight/2-50, 280, 280, end-90, -90);
     total = total - 1;
     if (total === -1) { 
       startFlag = false
