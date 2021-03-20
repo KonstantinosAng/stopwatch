@@ -1,4 +1,4 @@
-let hour, min, sec, end, startFlag=false, song, h, m, s;
+let hour, min, sec, end, startFlag=false, song, h, m, s, total, max, quit;
 const remote = require('electron').remote;
 const { app } = require('electron');
 
@@ -21,9 +21,9 @@ function setup() {
   song = loadSound('complete.mp3');
   quit = document.getElementById('quit');
   quit.addEventListener('click', ()=>{
-	let w = remote.getCurrentWindow();
-	w.close();
-	app.close(0);
+    let w = remote.getCurrentWindow();
+    w.close();
+    app.close(0);
   })
 }
 
@@ -45,8 +45,8 @@ function draw() {
   if (startFlag) {
     end = map(total, 0, max, 360, 0);
     arc(windowWidth/2, windowHeight/2-80, 280, 280, end-90, -90);
-    total = total - 1;
-    if (total === -1) { 
+    total--;
+    if (total===-1) {
       startFlag = false
       playSound()
     }
