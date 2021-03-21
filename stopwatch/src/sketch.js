@@ -4,7 +4,7 @@ const { app } = require('electron');
 function setup() {
   createCanvas(windowWidth, windowHeight-100);
   angleMode(DEGREES);
-  frameRate(10);
+  frameRate(30);
   h = document.getElementById('hour');
   m = document.getElementById('min');
   s = document.getElementById('sec');
