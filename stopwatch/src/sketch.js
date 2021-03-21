@@ -1,5 +1,4 @@
 let hour, min, sec, end, startFlag=false, song, h, m, s, total, max, quit;
-const remote = require('electron').remote;
 const { app } = require('electron');
 
 function setup() {
@@ -22,8 +21,7 @@ function setup() {
   song = loadSound('complete.mp3');
   quit = document.getElementById('quit');
   quit.addEventListener('click', ()=>{
-    let w = remote.getCurrentWindow();
-    w.close();
+    require('electron').remote.getCurrentWindow().close();
     app.close(0);
   })
 }
