@@ -17,6 +17,7 @@ function setup() {
     total = hour*60*60 + min*60 + sec;
     max = hour*60*60 + min*60 + sec;
     startFlag = true;
+    count();
   })
   song = loadSound('complete.mp3');
   quit = document.getElementById('quit');
@@ -34,6 +35,10 @@ function playSound() {
   s.value = '';
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function draw() {
   background(0);
   strokeWeight(10);
@@ -42,13 +47,17 @@ function draw() {
   ellipse(windowWidth/2, windowHeight/2-80, 280, 280);
   stroke(255, 150, 0);
   fill(255, 0, 0);
-  if (startFlag) {
-    end = map(total, 0, max, 360, 0);
-    arc(windowWidth/2, windowHeight/2-80, 280, 280, end-90, -90);
-    total--;
-    if (total===-1) {
-      startFlag = false
-      playSound()
+  arc(windowWidth/2, windowHeight/2-80, 280, 280, end-90, -90);
+}
+
+async function count() {
+  while (total >= 0) {
+    if (startFlag) {
+      end = map(total, 0, max, 360, 0);
+      total--;
+      await sleep(1000);
     }
   }
+  startFlag = false;
+  playSound();
 }
